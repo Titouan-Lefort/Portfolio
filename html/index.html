@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Musée Virtuel</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <!-- Import Map pour Three.js et GSAP -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
+                "gsap": "https://unpkg.com/gsap@3.12.5/index.js"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="info">
+        <h1>Musée Virtuel</h1>
+        <p>Utilisez la souris pour explorer</p>
+    </div>
+    <nav id="menu">
+        <button data-zone="intro">Introduction</button>
+        <button data-zone="web">Projets Web</button>
+        <button data-zone="design">Design Graphique</button>
+        <button data-zone="contact">Contact</button>
+    </nav>
+
+    <!-- Panneau de description pour les objets interactifs -->
+    <div id="description-panel" class="hidden">
+        <button id="close-btn">×</button>
+        <h2 id="desc-title">Titre de l'objet</h2>
+        <p id="desc-content">Description détaillée de l'objet...</p>
+    </div>
+
+    <script type="module" src="../js/main.js"></script>
+</body>
+</html>
