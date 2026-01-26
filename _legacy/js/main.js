@@ -18,21 +18,19 @@ document.body.appendChild(renderer.domElement);
 
 // Création des particules (étoiles)
 const particlesGeometry = new THREE.BufferGeometry();
-const particlesCount = 2000;
+const particlesCount = 15000; // Beaucoup plus d'étoiles pour une galaxie dense
 
 const posArray = new Float32Array(particlesCount * 3);
 
 for(let i = 0; i < particlesCount * 3; i++) {
-    // Distribution aléatoire dans une sphère/cube large
-    // (Math.random() - 0.5) * 100 donne une plage de -50 à 50. 
-    // On va étendre ça pour un grand champ d'étoiles.
-    posArray[i] = (Math.random() - 0.5) * 200; 
+    // Distribution aléatoire dans un espace plus large
+    posArray[i] = (Math.random() - 0.5) * 400; 
 }
 
 particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
 const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.2,
+    size: 0.15, // Petits points pour le fond
     color: 0xffffff,
     transparent: true,
     opacity: 0.8,
@@ -79,6 +77,13 @@ const projects = [
         // Upsilon Librae - Haut Gauche (Extension)
         position: new THREE.Vector3(-15, 15, -5), 
         color: 0xff33ff 
+    },
+    {
+        name: "Mobile App",
+        description: "Application mobile cross-platform avec React Native.",
+        // Tau Librae - Extension Milieu
+        position: new THREE.Vector3(-12, -5, 2),
+        color: 0x33ffff
     }
 ];
 
@@ -103,8 +108,8 @@ const projectGroup = new THREE.Group();
 scene.add(projectGroup);
 
 projects.forEach(project => {
-    // 1. La sphère principale (L'étoile)
-    const geometry = new THREE.SphereGeometry(0.5, 32, 32);
+    // 1. La sphère principale (L'étoile) - Beaucoup plus grosse
+    const geometry = new THREE.SphereGeometry(1.5, 32, 32);
     const material = new THREE.MeshBasicMaterial({ color: project.color });
     const mesh = new THREE.Mesh(geometry, material);
     mesh.position.copy(project.position);
@@ -116,7 +121,7 @@ projects.forEach(project => {
         isProject: true
     };
 
-    // 2. Le Halo (Sprite)
+    // 2. Le Halo (Sprite) - Adapté à la taille de la sphère
     const spriteMaterial = new THREE.SpriteMaterial({ 
         map: glowTexture, 
         color: project.color, 
@@ -125,22 +130,46 @@ projects.forEach(project => {
         blending: THREE.AdditiveBlending
     });
     const sprite = new THREE.Sprite(spriteMaterial);
-    sprite.scale.set(4, 4, 1); // Le halo est plus grand que la sphère
+    sprite.scale.set(8, 8, 1); // Le halo est plus grand que la sphère
     mesh.add(sprite); // Le sprite suit la sphère
 
     projectGroup.add(mesh);
 });
 
-// Création des lignes de la constellation
-const points = projects.map(p => p.position);
+// Création des lignes de la constellation (Libra / Balance)
+// Indices dans le tableau projects :
+// 0: Sigma (Bas Gauche)
+// 1: Alpha (Bas Droite)
+// 2: Beta (Haut Droite)
+// 3: Gamma (Milieu Gauche)
+// 4: Upsilon (Haut Gauche)
+// 5: Tau (Milieu)
+
+const connections = [
+    [0, 1], // Sigma -> Alpha
+    [1, 2], // Alpha -> Beta
+    [2, 3], // Beta -> Gamma
+    [3, 0], // Gamma -> Sigma (Ferme le quadrilatère)
+    [3, 4], // Gamma -> Upsilon (Extension Haut)
+    [3, 5]  // Gamma -> Tau (Extension Milieu)
+];
+
+const points = [];
+connections.forEach(pair => {
+    points.push(projects[pair[0]].position);
+    points.push(projects[pair[1]].position);
+});
+
 const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
 const lineMaterial = new THREE.LineBasicMaterial({ 
     color: 0xffffff, 
     transparent: true, 
     opacity: 0.2 
 });
-const constellationLines = new THREE.Line(lineGeometry, lineMaterial);
+// Utilisation de LineSegments pour des lignes disjointes
+const constellationLines = new THREE.LineSegments(lineGeometry, lineMaterial);
 scene.add(constellationLines);
+
 
 // Contrôles
 const controls = new OrbitControls(camera, renderer.domElement);
