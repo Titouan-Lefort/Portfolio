@@ -8,7 +8,6 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
-  const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -44,14 +43,8 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
-  useEffect(() => {
-    if (isPhotoModalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => { document.body.style.overflow = 'unset'; };
-  }, [isPhotoModalOpen]);
+
+
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -80,12 +73,6 @@ const Navbar = () => {
             src={profilePhoto}
             alt="Titouan Lefort"
             className="logo-icon"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setIsPhotoModalOpen(true);
-            }}
-            style={{ cursor: 'pointer' }}
           />
           <span className="logo-text">titouan.lefort</span>
         </Link>
@@ -135,27 +122,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {isPhotoModalOpen && (
-        <div
-          className="photo-modal-overlay"
-          onClick={() => setIsPhotoModalOpen(false)}
-        >
-          <div className="photo-modal-content">
-            <img
-              src={profilePhoto}
-              alt="Titouan Lefort"
-              className="photo-modal-image"
-              onClick={(e) => e.stopPropagation()}
-            />
-            <button
-              className="photo-modal-close"
-              onClick={() => setIsPhotoModalOpen(false)}
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-      )}
     </nav>
   );
 };

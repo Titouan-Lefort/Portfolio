@@ -1,3 +1,8 @@
+.cursor-crosshair {
+    cursor: crosshair;
+}
+
+
 .navbar {
     position: fixed;
     top: 0;
@@ -39,11 +44,11 @@
     border-radius: 50%;
     object-fit: cover;
     border: 1.5px solid var(--color-border-light);
-    transition: border-color var(--transition-fast);
+    cursor: crosshair;
 }
 
 .logo:hover .logo-icon {
-    border-color: var(--color-accent);
+    border-color: var(--color-border-light);
 }
 
 /* Photo Modal */
