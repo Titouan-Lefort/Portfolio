@@ -1,15 +1,15 @@
 .scroll-to-top {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
     cursor: pointer;
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
-    transform: scale(0.8);
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transform: scale(0.9);
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,67 +22,59 @@
 }
 
 .scroll-to-top:hover {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
-.scroll-to-top:active {
-    transform: scale(0.95);
+/* Progress ring — sized to match container */
+.progress-ring {
+    width: 48px;
+    height: 48px;
 }
 
-/* Cercle de fond */
 .progress-ring-circle-bg {
-    fill: none;
-    stroke: rgba(255, 255, 255, 0.1);
-    stroke-width: 3;
+    fill: var(--color-bg-secondary);
+    stroke: var(--color-border);
+    stroke-width: 2;
 }
 
-/* Cercle de progression */
 .progress-ring-circle {
     fill: none;
-    stroke: var(--primary-color, #00d4ff);
-    stroke-width: 3;
+    stroke: var(--color-accent);
+    stroke-width: 2;
     stroke-linecap: round;
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
     transition: stroke-dashoffset 0.1s ease;
-    filter: drop-shadow(0 0 8px var(--primary-color, #00d4ff));
 }
 
-/* Icône flèche */
+/* Arrow */
 .arrow-icon {
     position: absolute;
-    color: var(--primary-color, #00d4ff);
-    filter: drop-shadow(0 0 4px var(--primary-color, #00d4ff));
-    transition: transform 0.3s ease;
+    width: 18px;
+    height: 18px;
+    color: var(--color-accent);
+    transition: transform 0.2s ease;
 }
 
 .scroll-to-top:hover .arrow-icon {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .scroll-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
+        bottom: 16px;
+        right: 16px;
+        width: 42px;
+        height: 42px;
     }
 
     .progress-ring {
-        width: 50px;
-        height: 50px;
-    }
-
-    .progress-ring-circle-bg,
-    .progress-ring-circle {
-        r: 22;
-        cx: 25;
-        cy: 25;
+        width: 42px;
+        height: 42px;
     }
 
     .arrow-icon {
-        width: 20px;
-        height: 20px;
+        width: 16px;
+        height: 16px;
     }
 }

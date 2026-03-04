@@ -1,181 +1,169 @@
 .hero {
-    padding-top: 140px;
-    padding-bottom: 4rem;
+    padding-top: 120px;
+    padding-bottom: 3rem;
     overflow: hidden;
     position: relative;
-    /* Dark mode background ensured by global styles */
 }
 
-/* Flex Container for Split Layout */
 .hero-container {
     display: flex;
     align-items: center;
-    /* Vertically centered */
     justify-content: space-between;
     gap: 4rem;
-    margin-bottom: 5rem;
-    /* Space for carousel below */
-    position: relative;
+    margin-bottom: 6rem;
 }
 
 /* Left Column */
 .hero-content {
     flex: 1;
-    max-width: 600px;
+    max-width: 520px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* Left align */
     text-align: left;
-    z-index: 2;
 }
 
-.badge {
-    background-color: rgba(59, 130, 246, 0.1);
-    color: var(--color-accent);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    padding: 0.25rem 0.75rem;
-    border-radius: var(--radius-full);
-    font-size: 0.875rem;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-    display: inline-block;
+.hero-greeting {
+    font-size: 1rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-mono);
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 3vw + 1rem, 3.75rem);
     line-height: 1.1;
-    font-weight: 800;
-    color: var(--color-primary);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.03em;
+    font-family: var(--font-mono);
+}
+
+.cursor {
+    color: var(--color-accent);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.hero-role {
+    font-size: clamp(1rem, 0.5vw + 0.8rem, 1.2rem);
+    color: var(--color-accent);
+    margin-bottom: 1.25rem;
+    font-weight: 500;
 }
 
 .hero-subtitle {
-    font-size: 1.15rem;
+    font-size: clamp(0.95rem, 0.3vw + 0.8rem, 1.1rem);
     color: var(--color-text-secondary);
-    margin-bottom: 2.5rem;
-    line-height: 1.6;
-    max-width: 90%;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    max-width: 95%;
 }
 
 .hero-actions {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
-/* Pill Button Style */
-.btn-black-pill {
-    background-color: var(--color-accent);
-    color: white;
-    padding: 0.875rem 2rem;
-    border-radius: 9999px;
-    /* Pill */
-    font-size: 1rem;
-    font-weight: 600;
-    transition: all var(--transition-normal);
-    box-shadow: var(--shadow-glow);
-}
-
-.btn-black-pill:hover {
-    transform: translateY(-2px);
-    background-color: var(--color-accent-hover);
-    box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
-}
-
-/* Right Column: Image Wrapper */
-.hero-image-wrapper {
-    flex: 1;
-    position: relative;
-    /* Ensure it doesn't overflow container too much */
-    max-width: 550px;
-}
-
-.hero-dashboard-img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-xl);
-    border: 1px solid var(--color-border);
-    background: var(--color-bg-tertiary);
-    position: relative;
-    z-index: 2;
-}
-
-.hero-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120%;
-    height: 120%;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(11, 17, 32, 0) 70%);
-    z-index: 1;
-    pointer-events: none;
-}
-
-/* Floating cards */
-.floating-card {
-    position: absolute;
+/* Terminal Block */
+.hero-terminal {
+    flex: 1.2;
+    max-width: 600px;
     background: var(--color-bg-secondary);
-    padding: 0.75rem 1.25rem;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg);
     border: 1px solid var(--color-border);
-    z-index: 3;
-    animation: float 6s ease-in-out infinite;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.terminal-header {
     display: flex;
-    flex-direction: column;
-    min-width: 120px;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 1rem;
+    background: var(--color-bg-tertiary);
+    border-bottom: 1px solid var(--color-border);
 }
 
-.card-1 {
-    top: 10%;
-    left: -10%;
-    animation-delay: 0s;
+.terminal-dots {
+    display: flex;
+    gap: 6px;
 }
 
-.card-2 {
-    bottom: 20%;
-    right: -5%;
-    animation-delay: 2s;
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
 }
 
-.stat-label {
+.dot-red {
+    background: #ff5f57;
+}
+
+.dot-yellow {
+    background: #febc2e;
+}
+
+.dot-green {
+    background: #28c840;
+}
+
+.terminal-title {
     font-size: 0.75rem;
     color: var(--color-text-tertiary);
-    text-transform: uppercase;
-    font-weight: 600;
+    font-family: var(--font-mono);
 }
 
-.stat-value {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--color-primary);
+.terminal-body {
+    padding: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: clamp(0.8rem, 0.2vw + 0.7rem, 0.9rem);
+    line-height: 1.7;
+    color: var(--color-accent);
+    min-height: 200px;
+    margin: 0;
+    white-space: pre;
+    overflow-x: auto;
 }
 
+.terminal-body code {
+    font-family: inherit;
+}
 
-/* Infinite Carousel Styles */
+.terminal-cursor {
+    color: var(--color-accent);
+    animation: blink 0.8s step-end infinite;
+}
+
+/* Carousel — cleaned up, no glow */
 .hero-carousel-wrapper {
     width: 100%;
     overflow: hidden;
     position: relative;
-    padding: 1.5rem 0;
-    background: rgba(255, 255, 255, 0.02);
+    padding: 1.25rem 0;
+    margin-top: 2rem;
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
-    /* Fade masks on edges */
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
 
 .hero-carousel-track {
     display: flex;
-    gap: 4rem;
+    gap: 3rem;
     width: max-content;
-    animation: scroll 60s linear infinite;
-    /* Interactable */
-    cursor: default;
+    animation: scroll 50s linear infinite;
 }
 
 .hero-carousel-track:hover {
@@ -185,23 +173,33 @@
 .carousel-item {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    color: var(--color-text-secondary);
+    gap: 0.5rem;
+    color: var(--color-text-tertiary);
     white-space: nowrap;
+    transition: color var(--transition-fast);
+}
+
+.carousel-item:hover {
+    color: var(--color-text-secondary);
 }
 
 .carousel-icon {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     object-fit: contain;
-    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));
+    opacity: 0.7;
+    transition: opacity var(--transition-fast);
+}
+
+.carousel-item:hover .carousel-icon {
+    opacity: 1;
 }
 
 .carousel-name {
-    font-weight: 600;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-weight: 500;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    letter-spacing: 0.02em;
 }
 
 @keyframes scroll {
@@ -210,29 +208,7 @@
     }
 
     100% {
-        transform: translateX(-50%);
-    }
-
-    /* Move by 50% because we duplicated stack 4 times, effective loop depends on width. 
-       Actually standard infinite scroll logic: needs exact duplication width matching. 
-       With 4 copies, moving -50% might jump. 
-       Safer: Duplicating list X times where X is large, scroll seamlessly.
-       Let's try -50% assuming visual continuity, if noticeable jump we adjust.
-     */
-}
-
-/* Animations */
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-
-    100% {
-        transform: translateY(0px);
+        transform: translateX(-33.333%);
     }
 }
 
@@ -240,7 +216,7 @@
     .hero-container {
         flex-direction: column;
         text-align: center;
-        gap: 3rem;
+        gap: 2.5rem;
     }
 
     .hero-content {
@@ -250,17 +226,15 @@
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
     }
 
-    .card-1,
-    .card-2 {
-        display: none;
-        /* Hide floating cards on mobile to reduce clutter */
+    .hero-terminal {
+        max-width: 100%;
     }
 
     .hero-carousel-track {
         gap: 2rem;
-        animation-duration: 20s;
+        animation-duration: 25s;
     }
 }

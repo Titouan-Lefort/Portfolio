@@ -7,7 +7,6 @@ import FocusSection from './components/FocusSection';
 import Footer from './components/Footer';
 import ScrollReveal from './components/ScrollReveal';
 import ScrollToTop from './components/ScrollToTop';
-import CodeBackground from './components/CodeBackground';
 import ProjectsPage from './pages/ProjectsPage';
 import ExperiencePage from './pages/ExperiencePage';
 import ContactPage from './pages/ContactPage';
@@ -17,7 +16,6 @@ import './index.css';
 const Home = () => (
   <>
     <ScrollReveal />
-    <CodeBackground />
     <Navbar />
     <Hero />
     <FeaturesGrid />

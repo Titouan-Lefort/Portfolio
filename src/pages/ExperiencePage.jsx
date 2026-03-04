@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Briefcase, GraduationCap, Calendar } from 'lucide-react';
+import { ArrowLeft, Briefcase, GraduationCap, Calendar, GitBranch, GitCommit } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -55,7 +55,7 @@ const education = [
         school: 'BTS SIO - Services Informatiques aux Organisations',
         degree: 'Option SLAM (Solutions Logicielles et Applications Métiers)',
         period: '2024 - 2026',
-        description: 'Formation complète en développement d\'applications, gestion de bases de données et administration système. Apprentissage des méthodologies de développement et des bonnes pratiques professionnelles.',
+        description: 'Formation complète en développement d\'applications, gestion de bases de données et administration système.',
         highlights: [
             'Conception et développement d\'applications (Web, Mobile, Desktop)',
             'Gestion et administration de bases de données relationnelles',
@@ -68,9 +68,9 @@ const education = [
     {
         type: 'education',
         school: 'Baccalauréat Général',
-        degree: 'Spécialités Mathématiques et SVT (Science de la Vie et de la Terre)',
+        degree: 'Spécialités Mathématiques et SVT',
         period: '2021 - 2024',
-        description: 'Formation générale avec spécialisation en mathématiques et SVT. Développement de compétences analytiques, esprit scientifique et rigueur méthodologique.',
+        description: 'Formation générale avec spécialisation en mathématiques et SVT.',
         highlights: [
             'Raisonnement mathématique et résolution de problèmes complexes',
             'Analyse scientifique et démarche expérimentale',
@@ -81,62 +81,79 @@ const education = [
     }
 ];
 
-const TimelineItem = ({ item, index }) => {
+const TimelineItem = ({ item, index, isLast }) => {
     const isWork = item.type === 'work';
+    const commitHash = ['a3f8d2b', 'e7c1a9f', 'b4d2e8c', '9f3a7d1'][index % 4];
 
     return (
         <div
             className={`timeline-item fade-in-up ${isWork ? 'work' : 'education'}`}
             style={{ animationDelay: `${index * 0.1}s` }}
         >
-            <div className="timeline-marker">
-                {isWork ? <Briefcase size={20} /> : <GraduationCap size={20} />}
+            {/* Git graph visual */}
+            <div className="git-graph">
+                <div className="git-line-top"></div>
+                <div className={`git-node ${isWork ? 'node-work' : 'node-edu'}`}>
+                    <GitCommit size={14} />
+                </div>
+                {!isLast && <div className="git-line-bottom"></div>}
             </div>
 
             <div className="timeline-content">
-                <div className="timeline-header">
-                    <div>
-                        <h3 className="timeline-title">
-                            {isWork ? item.position : item.degree}
-                        </h3>
-                        <p className="timeline-company">
-                            {isWork ? item.company : item.school}
-                        </p>
+                {/* Editor tab bar */}
+                <div className="editor-tab-bar">
+                    <div className="editor-tab active">
+                        <span className="tab-icon">{isWork ? '⚡' : '📘'}</span>
+                        {isWork ? `${item.company.toLowerCase().replace(/\s+/g, '_')}.ts` : `${item.school.split(' ')[0].toLowerCase()}.md`}
                     </div>
-                    <div className="timeline-period">
-                        <Calendar size={16} />
-                        <span>{item.period}</span>
-                    </div>
+                    <span className="tab-hash">#{commitHash}</span>
                 </div>
 
-                <p className="timeline-description">{item.description}</p>
-
-                {item.technologies && (
-                    <div className="timeline-technologies">
-                        {item.technologies.map((tech, i) => (
-                            <div key={i} className="tech-badge">
-                                <img src={tech.logo} alt={tech.name} className="tech-logo" />
-                                <span>{tech.name}</span>
-                            </div>
-                        ))}
+                <div className="timeline-body">
+                    <div className="timeline-header">
+                        <div>
+                            <h3 className="timeline-title">
+                                {isWork ? item.position : item.degree}
+                            </h3>
+                            <p className="timeline-company">
+                                {isWork ? item.company : item.school}
+                            </p>
+                        </div>
+                        <div className="timeline-period">
+                            <Calendar size={14} />
+                            <span>{item.period}</span>
+                        </div>
                     </div>
-                )}
 
-                {item.achievements && (
-                    <ul className="timeline-achievements">
-                        {item.achievements.map((achievement, i) => (
-                            <li key={i}>{achievement}</li>
-                        ))}
-                    </ul>
-                )}
+                    <p className="timeline-description">{item.description}</p>
 
-                {item.highlights && (
-                    <ul className="timeline-highlights">
-                        {item.highlights.map((highlight, i) => (
-                            <li key={i}>{highlight}</li>
-                        ))}
-                    </ul>
-                )}
+                    {item.technologies && (
+                        <div className="timeline-technologies">
+                            {item.technologies.map((tech, i) => (
+                                <div key={i} className="tech-badge">
+                                    <img src={tech.logo} alt={tech.name} className="tech-logo" />
+                                    <span>{tech.name}</span>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
+                    {item.achievements && (
+                        <ul className="timeline-achievements">
+                            {item.achievements.map((achievement, i) => (
+                                <li key={i}>{achievement}</li>
+                            ))}
+                        </ul>
+                    )}
+
+                    {item.highlights && (
+                        <ul className="timeline-highlights">
+                            {item.highlights.map((highlight, i) => (
+                                <li key={i}>{highlight}</li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
             </div>
         </div>
     );
@@ -166,24 +183,26 @@ const ExperiencePage = () => {
 
                 <section className="timeline-section">
                     <div className="section-title-wrapper fade-in-up">
-                        <Briefcase size={28} className="section-icon" />
+                        <GitBranch size={20} className="section-icon" />
                         <h2 className="section-title">Expérience Professionnelle</h2>
+                        <span className="branch-label">main</span>
                     </div>
                     <div className="timeline">
                         {experiences.map((exp, index) => (
-                            <TimelineItem key={index} item={exp} index={index} />
+                            <TimelineItem key={index} item={exp} index={index} isLast={index === experiences.length - 1} />
                         ))}
                     </div>
                 </section>
 
                 <section className="timeline-section">
                     <div className="section-title-wrapper fade-in-up">
-                        <GraduationCap size={28} className="section-icon" />
+                        <GitBranch size={20} className="section-icon" />
                         <h2 className="section-title">Formation</h2>
+                        <span className="branch-label">education</span>
                     </div>
                     <div className="timeline">
                         {education.map((edu, index) => (
-                            <TimelineItem key={index} item={edu} index={experiences.length + index} />
+                            <TimelineItem key={index} item={edu} index={experiences.length + index} isLast={index === education.length - 1} />
                         ))}
                     </div>
                 </section>

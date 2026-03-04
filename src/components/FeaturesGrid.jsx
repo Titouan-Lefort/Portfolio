@@ -5,58 +5,40 @@ const services = [
     {
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg',
         title: "C# / .NET",
-        description: "Développement d'applications back-end robustes et performantes."
+        description: "Applications back-end robustes et performantes."
     },
     {
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
         title: "Laravel",
-        description: "Conception d'architectures MVC élégantes."
+        description: "Architectures MVC et APIs RESTful."
     },
     {
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
-        title: "SQL & Bases de données",
-        description: "Modélisation de données et administration."
+        title: "SQL & BDD",
+        description: "Modélisation de données, requêtes complexes, administration."
     },
     {
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
         title: "Docker",
-        description: "Conteneurisation d'applications."
+        description: "Conteneurisation et déploiement d'applications."
     },
     {
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
         title: "Linux",
-        description: "Gestion d'environnement serveur, scripting Bash et administration système."
+        description: "Administration système, scripting Bash, gestion serveur."
     },
     {
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
-        title: "GitHub & Git",
-        description: "Gestion de version, collaboration en équipe."
+        title: "Git & GitHub",
+        description: "Versioning, collaboration, workflows CI/CD."
     }
 ];
 
-// Interactive Card Component
-const FeatureCard = ({ feature }) => {
-    const cardRef = useRef(null);
-
-    const handleMouseMove = (e) => {
-        if (!cardRef.current) return;
-        const card = cardRef.current;
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-    };
-
+const FeatureCard = ({ feature, index }) => {
     return (
-        <div
-            className="feature-card"
-            ref={cardRef}
-            onMouseMove={handleMouseMove}
-        >
-            <div className="card-border-gradient"></div>
+        <div className="feature-card">
             <div className="card-content">
+                <span className="feature-line-number">{String(index + 1).padStart(2, '0')}</span>
                 <div className="feature-icon-wrapper">
                     <img src={feature.logo} alt={feature.title} className="feature-icon" />
                 </div>
@@ -71,17 +53,31 @@ const FeaturesGrid = () => {
     return (
         <section id="competences" className="section features-section">
             <div className="container">
-                <div className="section-header text-center">
-                    <h2 className="section-title">Mes Domaines d'Expertise</h2>
-                    <p className="section-subtitle">
-                        Une approche technique complète pour transformer vos idées en produits numériques performants.
-                    </p>
+                {/* Git-style activity bar */}
+                <div className="dev-activity-bar">
+                    <div className="activity-dot active"></div>
+                    <span className="activity-text">6 modules chargés</span>
+                    <span className="activity-separator">·</span>
+                    <span className="activity-text">stack stable</span>
+                    <span className="activity-separator">·</span>
+                    <span className="activity-branch">main</span>
+                </div>
+
+                <div className="section-header">
+                    <span className="section-label">// compétences</span>
+                    <h2 className="section-title">Stack technique</h2>
                 </div>
 
                 <div className="features-grid">
                     {services.map((feature, idx) => (
-                        <FeatureCard key={idx} feature={feature} />
+                        <FeatureCard key={idx} feature={feature} index={idx} />
                     ))}
+                </div>
+
+                <div className="dev-footer-line">
+                    <span className="line-prompt">$</span>
+                    <span className="line-command">npm run build</span>
+                    <span className="line-result">✓ compiled successfully</span>
                 </div>
             </div>
         </section>
