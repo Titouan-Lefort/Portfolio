@@ -1,0 +1,266 @@
+.hero {
+    padding-top: 140px;
+    padding-bottom: 4rem;
+    overflow: hidden;
+    position: relative;
+    /* Dark mode background ensured by global styles */
+}
+
+/* Flex Container for Split Layout */
+.hero-container {
+    display: flex;
+    align-items: center;
+    /* Vertically centered */
+    justify-content: space-between;
+    gap: 4rem;
+    margin-bottom: 5rem;
+    /* Space for carousel below */
+    position: relative;
+}
+
+/* Left Column */
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Left align */
+    text-align: left;
+    z-index: 2;
+}
+
+.badge {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--color-accent);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Pill Button Style */
+.btn-black-pill {
+    background-color: var(--color-accent);
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 9999px;
+    /* Pill */
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-black-pill:hover {
+    transform: translateY(-2px);
+    background-color: var(--color-accent-hover);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+}
+
+/* Right Column: Image Wrapper */
+.hero-image-wrapper {
+    flex: 1;
+    position: relative;
+    /* Ensure it doesn't overflow container too much */
+    max-width: 550px;
+}
+
+.hero-dashboard-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-tertiary);
+    position: relative;
+    z-index: 2;
+}
+
+.hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(11, 17, 32, 0) 70%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Floating cards */
+.floating-card {
+    position: absolute;
+    background: var(--color-bg-secondary);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
+    z-index: 3;
+    animation: float 6s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+}
+
+.card-1 {
+    top: 10%;
+    left: -10%;
+    animation-delay: 0s;
+}
+
+.card-2 {
+    bottom: 20%;
+    right: -5%;
+    animation-delay: 2s;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.stat-value {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+
+/* Infinite Carousel Styles */
+.hero-carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 1.5rem 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    /* Fade masks on edges */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.hero-carousel-track {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    animation: scroll 60s linear infinite;
+    /* Interactable */
+    cursor: default;
+}
+
+.hero-carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.carousel-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+}
+
+.carousel-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));
+}
+
+.carousel-name {
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* Move by 50% because we duplicated stack 4 times, effective loop depends on width. 
+       Actually standard infinite scroll logic: needs exact duplication width matching. 
+       With 4 copies, moving -50% might jump. 
+       Safer: Duplicating list X times where X is large, scroll seamlessly.
+       Let's try -50% assuming visual continuity, if noticeable jump we adjust.
+     */
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@media (max-width: 968px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .hero-content {
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .card-1,
+    .card-2 {
+        display: none;
+        /* Hide floating cards on mobile to reduce clutter */
+    }
+
+    .hero-carousel-track {
+        gap: 2rem;
+        animation-duration: 20s;
+    }
+}

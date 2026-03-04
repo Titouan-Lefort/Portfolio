@@ -1,0 +1,74 @@
+.social-proof {
+    padding: 2rem 0;
+    background-color: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.proof-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-tertiary);
+}
+
+.logos-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.partner-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0.5;
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    /* Indication of interaction */
+    color: var(--color-text-secondary);
+    position: relative;
+}
+
+/* Active State on Hover */
+.partner-logo:hover,
+.partner-logo.active {
+    opacity: 1;
+    color: var(--color-accent);
+    transform: scale(1.1);
+}
+
+.partner-icon {
+    stroke-width: 2;
+    transition: all 0.3s ease;
+}
+
+/* Simple bounce animation class */
+.animate-bounce {
+    animation: bounce 0.5s infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-5px);
+    }
+}
+
+.partner-name {
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+    .logos-grid {
+        gap: 2rem;
+    }
+}

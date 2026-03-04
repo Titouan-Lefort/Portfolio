@@ -1,0 +1,60 @@
+/* Fond de lignes de code animé */
+.code-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: #0a0a0a;
+    opacity: 0.4;
+}
+
+.code-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #4a9eff;
+    white-space: pre;
+    overflow: hidden;
+    animation: scrollCode 60s linear infinite;
+}
+
+@keyframes scrollCode {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+/* Dégradé pour masquer le haut et le bas */
+.code-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, #0a0a0a 0%, transparent 100%);
+    z-index: 1;
+}
+
+.code-background::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to top, #0a0a0a 0%, transparent 100%);
+    z-index: 1;
+}

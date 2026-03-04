@@ -1,0 +1,119 @@
+.features-section {
+    background-color: var(--color-bg-primary);
+}
+
+.section-header {
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+/* Feature Card basic styles */
+.feature-card {
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+    /* Important for the gradient effect */
+    border: 1px solid var(--color-border);
+    transition: transform var(--transition-normal);
+    /* cursor: pointer; */
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+/* The gradient glow following mouse */
+.card-border-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(59, 130, 246, 0.15),
+            transparent 40%);
+    transition: opacity 0.5s ease;
+}
+
+.feature-card:hover .card-border-gradient {
+    opacity: 1;
+}
+
+/* Inner content */
+.card-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Ensure background covers the gradient logic correctly if needed,
+     but here we want the gradient on TOP of the bg but BELOW content? 
+     Actually standard pattern is gradient *border*, but here let's do inner glow.
+     So bg is on .feature-card, gradient is overlay.
+  */
+}
+
+
+.feature-icon-wrapper {
+    background-color: rgba(59, 130, 246, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--color-accent);
+    transition: all var(--transition-fast);
+}
+
+.feature-card:hover .feature-icon-wrapper {
+    background-color: var(--color-accent);
+    color: white;
+    transform: scale(1.1) rotate(5deg);
+}
+
+.feature-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    transition: filter var(--transition-fast);
+}
+
+.feature-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+}
+
+.feature-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
