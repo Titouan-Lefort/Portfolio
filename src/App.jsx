@@ -12,6 +12,7 @@ import ExperiencePage from './pages/ExperiencePage';
 import ContactPage from './pages/ContactPage';
 import MontazaDetail from './pages/MontazaDetail';
 import MedicalCabinetDetail from './pages/MedicalCabinetDetail';
+import MedicalCabinetWebDetail from './pages/MedicalCabinetWebDetail';
 import './index.css';
 
 const Home = () => (
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/montaza" element={<MontazaDetail />} />
           <Route path="/projects/medical-cabinet" element={<MedicalCabinetDetail />} />
+          <Route path="/projects/medical-cabinet-web" element={<MedicalCabinetWebDetail />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>

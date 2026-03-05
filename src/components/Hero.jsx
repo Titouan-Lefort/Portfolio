@@ -8,7 +8,7 @@ const Hero = () => {
     const fullText = `const dev = {
   nom: "Titouan Lefort",
   formation: "BTS SIO SLAM",
-  stack: ["Laravel", "React", "C#", "PostgreSQL"],
+  stack: ["Laravel", "Linux", "C#", "PostgreSQL"],
   passion: "Construire des solutions qui marchent"
 };`;
 
@@ -54,8 +54,7 @@ const Hero = () => {
                     <p className="hero-role">Développeur Fullstack & Application</p>
                     <p className="hero-subtitle">
                         Étudiant en 2ème année de BTS SIO. Je code des apps web et desktop
-                        avec Laravel, React, C# — et je m'intéresse à tout ce qui touche
-                        au backend et à l'infra.
+                        avec Laravel et C# — et je m'intéresse à tout ce qui touche à l'infra.
                     </p>
                     <div className="hero-actions">
                         <Link to="/projects" className="btn btn-primary">

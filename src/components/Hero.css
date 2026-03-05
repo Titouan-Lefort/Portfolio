@@ -174,20 +174,23 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--color-text-tertiary);
+    color: var(--color-text-secondary);
+    /* Updated from tertiary to secondary for better legibility */
     white-space: nowrap;
     transition: color var(--transition-fast);
 }
 
 .carousel-item:hover {
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary);
+    /* Updated from secondary to primary */
 }
 
 .carousel-icon {
     width: 24px;
     height: 24px;
     object-fit: contain;
-    opacity: 0.7;
+    opacity: 0.9;
+    /* Increased base opacity for better visibility */
     transition: opacity var(--transition-fast);
 }
 

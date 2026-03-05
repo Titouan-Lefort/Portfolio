@@ -74,7 +74,7 @@ const FocusSection = () => {
                             <li><span className="list-line-num">03</span> Une gestion performantes du Cabinet</li>
                         </ul>
                         <div className="focus-actions">
-                            <Link to="/projects" state={{ from: 'home' }} className="btn btn-primary">
+                            <Link to="/projects/medical-cabinet" state={{ from: 'home' }} className="btn btn-primary">
                                 <ExternalLink size={15} style={{ marginRight: '6px' }} /> En savoir plus
                             </Link>
                         </div>

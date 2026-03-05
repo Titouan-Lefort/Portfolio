@@ -98,12 +98,20 @@ const MedicalCabinetDetail = () => {
                 </section>
                 {/* But du projet */}
                 <section className="project-section fade-in-up" style={{ animationDelay: '0.2s' }}>
-                    <h2 className="section-title">But du projet</h2>
+                    <h2 className="section-title">Objectif du projet</h2>
                     <p className="section-text">
                         Cette application a été conçue dans le cadre d'un projet académique. <br />
                         Le but était de finaliser nos connaissance en C# en créant une application complète. <br />
                         Nous étions une équipe de 4 développeurs, les taches était départager et nous avons centralisé le code en utilisant GitHub.
                     </p>
+                </section>
+                <section className="project-section fade-in-up" style={{ animationDelay: '0.6s' }}>
+                    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                        <a href="https://github.com/Jules-pecquereau/MedicamentMihnC-" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                            <Code size={20} style={{ marginRight: '8px' }} />
+                            Code source complet
+                        </a>
+                    </div>
                 </section>
 
             </main>

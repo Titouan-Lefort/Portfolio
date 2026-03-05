@@ -21,17 +21,17 @@ const projects = [
         description: "Application desktop pour la gestion d'un cabinet médical : patients, médicaments, ordonnances.",
         tags: ["C#", ".NET", "WPF", "MariaDB"],
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600",
-        github: "https://github.com/Titouan-Lefort/Gestion-cabinet-medical-Csharp",
+        github: "https://github.com/Jules-pecquereau/MedicamentMihnC-",
         demo: "/projects/medical-cabinet"
     },
     {
         id: 3,
-        title: "Gestion Cabinet Médical",
+        title: "Application web de Gestion de Cabinet Médical",
         description: "Application web de gestion pour un cabinet médical : patients, rendez-vous, dossiers médicaux, ordonnances.",
-        tags: ["Laravel", "PHP", "MySQL"],
+        tags: ["Laravel", "PHP", "PostgreSQL"],
         image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1600",
         github: "https://github.com/Titouan-Lefort/Gestion-cabinet-medical",
-        demo: "https://github.com/Titouan-Lefort/Gestion-cabinet-medical"
+        demo: "/projects/medical-cabinet-web"
     },
     {
         id: 4,
@@ -41,7 +41,7 @@ const projects = [
         image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=1600",
         github: null,
         demo: null
-    }
+    },
 ];
 
 const ProjectsPage = () => {
@@ -91,9 +91,15 @@ const ProjectsPage = () => {
                                             </a>
                                         )}
                                         {project.demo && (
-                                            <a href={project.demo} className="icon-btn" aria-label="Live Demo" target="_blank" rel="noopener noreferrer">
-                                                <ExternalLink size={20} />
-                                            </a>
+                                            project.demo.startsWith('/') ? (
+                                                <Link to={project.demo} className="icon-btn" aria-label="Live Demo">
+                                                    <ExternalLink size={20} />
+                                                </Link>
+                                            ) : (
+                                                <a href={project.demo} className="icon-btn" aria-label="Live Demo" rel="noopener noreferrer">
+                                                    <ExternalLink size={20} />
+                                                </a>
+                                            )
                                         )}
                                     </div>
                                 </div>
@@ -115,9 +121,15 @@ const ProjectsPage = () => {
                                     <h3 className="project-title">{project.title}</h3>
                                     <p className="project-description">{project.description}</p>
                                     {project.demo && (
-                                        <a href={project.demo} className="project-link-text">
-                                            Voir le projet <ArrowRight size={14} />
-                                        </a>
+                                        project.demo.startsWith('/') ? (
+                                            <Link to={project.demo} className="project-link-text">
+                                                Voir le projet <ArrowRight size={14} />
+                                            </Link>
+                                        ) : (
+                                            <a href={project.demo} className="project-link-text" target="_blank" rel="noopener noreferrer">
+                                                Voir le projet <ArrowRight size={14} />
+                                            </a>
+                                        )
                                     )}
                                 </div>
                             </div>
