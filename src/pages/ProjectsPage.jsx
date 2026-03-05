@@ -17,12 +17,12 @@ const projects = [
     },
     {
         id: 2,
-        title: "Application Bureau de Gestion de cabinet médical",
-        description: "Application desktop pour la gestion d'un cabinet médical : patients, médicaments, ordonnances.",
-        tags: ["C#", ".NET", "WPF", "MariaDB"],
+        title: "Application Bureau Gestion ERP",
+        description: "Application desktop en C# pour l'administration et la gestion d'un système ERP.",
+        tags: ["C#", ".NET", "WPF", "PostgreSQL"],
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600",
-        github: "https://github.com/Jules-pecquereau/MedicamentMihnC-",
-        demo: "/projects/medical-cabinet"
+        github: null,
+        demo: "/projects/erp-desktop"
     },
     {
         id: 3,
@@ -39,8 +39,17 @@ const projects = [
         description: "Plateforme éducative interactive avec jeux pédagogiques, quiz, animations et suivi de progression.",
         tags: ["React", "JavaScript", "HTML/CSS", "API"],
         image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=1600",
+        github: "https://github.com/Jules-pecquereau/projet-appli-enfant-",
+        demo: "/projects/site-educatif"
+    },
+    {
+        id: 5,
+        title: "Mise en place d'une infrastructure réseau",
+        description: "Déploiement d'une infrastructure sur machines virtuelles avec sauvegarde automatisée de BDD, hébergement Git et accès sécurisé SSH.",
+        tags: ["Linux", "Virtualisation", "Git", "SSH"],
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600",
         github: null,
-        demo: null
+        demo: "/projects/network-infra"
     },
 ];
 

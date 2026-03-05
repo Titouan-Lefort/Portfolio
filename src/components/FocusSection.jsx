@@ -64,17 +64,17 @@ const FocusSection = () => {
                             app.config
                         </div>
                         <span className="focus-tag">C# — Desktop</span>
-                        <h3 className="focus-title">Application Bureau</h3>
+                        <h3 className="focus-title">Application Bureau ERP</h3>
                         <p className="focus-text">
-                            Application WPF pour l'administration d'un cabinet médical.
+                            Application WPF pour l'administration du système ERP Atlantis Montaza.
                         </p>
                         <ul className="focus-list">
                             <li><span className="list-line-num">01</span> Architecture en C# et .NET avec interface WPF</li>
-                            <li><span className="list-line-num">02</span> Base de données MariaDB pour les informations du cabinet</li>
-                            <li><span className="list-line-num">03</span> Une gestion performantes du Cabinet</li>
+                            <li><span className="list-line-num">02</span> Connexion à la base de données PostgreSQL de l'ERP</li>
+                            <li><span className="list-line-num">03</span> Gestion performante des ressources et employés</li>
                         </ul>
                         <div className="focus-actions">
-                            <Link to="/projects/medical-cabinet" state={{ from: 'home' }} className="btn btn-primary">
+                            <Link to="/projects/erp-desktop" state={{ from: 'home' }} className="btn btn-primary">
                                 <ExternalLink size={15} style={{ marginRight: '6px' }} /> En savoir plus
                             </Link>
                         </div>

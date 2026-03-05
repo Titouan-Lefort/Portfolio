@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './ProjectDetailPage.css';
 
-const MedicalCabinetDetail = () => {
+const ErpDesktopDetail = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -28,25 +28,25 @@ const MedicalCabinetDetail = () => {
                         <ArrowLeft size={20} /> {backText}
                     </Link>
                     <h1 className="project-detail-title">
-                        Application <span className="text-accent">Cabinet Médical</span>
+                        Application <span className="text-accent">Bureau ERP</span>
                     </h1>
                     <p className="project-detail-subtitle">
-                        Application desktop pour la gestion complète d'un cabinet médical : patients, médicaments, ordonnances.
+                        Application desktop C# pour l'administration et la gestion du système ERP Atlantis Montaza.
                     </p>
                 </div>
 
                 {/* Image principale */}
                 <div className="project-hero-image fade-in-up" style={{ animationDelay: '0.1s' }}>
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600" alt="Cabinet Médical Dashboard" />
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600" alt="ERP Desktop Dashboard" />
                 </div>
 
                 {/* Vue d'ensemble */}
                 <section className="project-section fade-in-up" style={{ animationDelay: '0.2s' }}>
                     <h2 className="section-title">Vue d'ensemble</h2>
                     <p className="section-text">
-                        Cette application de bureau a été conçue pour administrer efficacement un cabinet médical.
-                        Elle permet de centraliser la base de données des patients, la gestion des médicaments,
-                        et la création d'ordonnances directement depuis l'interface.
+                        Cette application de bureau a été conçue pour administrer efficacement un système ERP.
+                        Elle sert d'interface d'administration avancée pour les gérants, permettant de centraliser la base de données, la gestion des stocks, la facturation
+                        et la gestion des ressources humaines de manière fluide et sécurisée.
                     </p>
                 </section>
 
@@ -56,21 +56,21 @@ const MedicalCabinetDetail = () => {
                         <Calendar className="info-icon" size={24} />
                         <div className="info-content">
                             <h3 className="info-title">Durée</h3>
-                            <p className="info-value">Projet académique sur une journée</p>
+                            <p className="info-value">Projet académique</p>
                         </div>
                     </div>
                     <div className="info-card">
                         <Users className="info-icon" size={24} />
                         <div className="info-content">
                             <h3 className="info-title">Équipe</h3>
-                            <p className="info-value">4 développeurs</p>
+                            <p className="info-value">Projet individuel</p>
                         </div>
                     </div>
                     <div className="info-card">
                         <Code className="info-icon" size={24} />
                         <div className="info-content">
                             <h3 className="info-title">Technologies</h3>
-                            <p className="info-value">C#, WPF, MariaDB</p>
+                            <p className="info-value">C#, WPF, PostgreSQL</p>
                         </div>
                     </div>
                 </div>
@@ -87,32 +87,69 @@ const MedicalCabinetDetail = () => {
                         <div className="tech-stack-item">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="WPF" />
                             <h4>WPF</h4>
-                            <p>Framework pour la création d'interfaces utilisateur Windows riches.</p>
+                            <p>Framework pour la création d'interfaces utilisateur Windows adaptées aux logiciels de gestion.</p>
                         </div>
                         <div className="tech-stack-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MariaDB" />
-                            <h4>MariaDB</h4>
-                            <p>Système de gestion de base de données relationnelle.</p>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
+                            <h4>PostgreSQL</h4>
+                            <p>Base de données relationnelle partagée avec la version web de l'ERP.</p>
                         </div>
                     </div>
                 </section>
-                {/* But du projet */}
+                {/* Fonctionnalités principales */}
+                <section className="project-section fade-in-up" style={{ animationDelay: '0.5s' }}>
+                    <h2 className="section-title">Fonctionnalités Principales</h2>
+                    <div className="features-list">
+                        <div className="feature-item">
+                            <CheckCircle className="feature-icon" size={20} />
+                            <div className="feature-content">
+                                <h4>Gestion des utilisateurs</h4>
+                                <p>Gestion des utilisateurs ainsi que de l'ensemble des rôles et permissions données à chacun.</p>
+                            </div>
+                        </div>
+                        <div className="feature-item">
+                            <CheckCircle className="feature-icon" size={20} />
+                            <div className="feature-content">
+                                <h4>Information de l'entreprise</h4>
+                                <p>Gestion des informations de l'entreprise.</p>
+                            </div>
+                        </div>
+                        <div className="feature-item">
+                            <CheckCircle className="feature-icon" size={20} />
+                            <div className="feature-content">
+                                <h4>Gestion des stocks</h4>
+                                <p>Gestion des stocks, ajout de nouveau produit, modification de produit, suppression de produit, mise à jour des stocks.</p>
+                            </div>
+                        </div>
+                        <div className="feature-item">
+                            <CheckCircle className="feature-icon" size={20} />
+                            <div className="feature-content">
+                                <h4>Authentification</h4>
+                                <p>Système de connexion sécurisé garantissant la confidentialité des données des patients.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {/* Objectif du projet */}
                 <section className="project-section fade-in-up" style={{ animationDelay: '0.2s' }}>
                     <h2 className="section-title">Objectif du projet</h2>
                     <p className="section-text">
-                        Cette application a été conçue dans le cadre d'un projet académique. <br />
-                        Le but était de finaliser nos connaissance en C# en créant une application complète. <br />
-                        Nous étions une équipe de 4 développeurs, les taches était départager et nous avons centralisé le code en utilisant GitHub.
+                        Cette application a été conçue dans le cadre de l'épreuve E6 de mon BTS SIO. <br />
+                        Le but étant de concevoir une application lourde (C#) en lien avec une application légère, j'ai décidé de le faire en lien avec l'ERP web de mon entreprise. <br />
+                        Cela m'a permis d'affiner mes compétences en développement d'applications de bureau et en gestion de bases de données.
                     </p>
                 </section>
+
+                {/* Link deleted for now since the old link was for a medical cabinet 
                 <section className="project-section fade-in-up" style={{ animationDelay: '0.6s' }}>
                     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                        <a href="https://github.com/Jules-pecquereau/MedicamentMihnC-" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                        <a href="#" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
                             <Code size={20} style={{ marginRight: '8px' }} />
                             Code source complet
                         </a>
                     </div>
                 </section>
+                */}
 
             </main>
 
@@ -121,4 +158,4 @@ const MedicalCabinetDetail = () => {
     );
 };
 
-export default MedicalCabinetDetail;
+export default ErpDesktopDetail;

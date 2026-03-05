@@ -11,8 +11,10 @@ import ProjectsPage from './pages/ProjectsPage';
 import ExperiencePage from './pages/ExperiencePage';
 import ContactPage from './pages/ContactPage';
 import MontazaDetail from './pages/MontazaDetail';
-import MedicalCabinetDetail from './pages/MedicalCabinetDetail';
+import ErpDesktopDetail from './pages/ErpDesktopDetail';
 import MedicalCabinetWebDetail from './pages/MedicalCabinetWebDetail';
+import KidsEduSiteDetail from './pages/KidsEduSiteDetail';
+import NetworkInfraDetail from './pages/NetworkInfraDetail';
 import './index.css';
 
 const Home = () => (
@@ -34,8 +36,10 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/montaza" element={<MontazaDetail />} />
-          <Route path="/projects/medical-cabinet" element={<MedicalCabinetDetail />} />
+          <Route path="/projects/erp-desktop" element={<ErpDesktopDetail />} />
           <Route path="/projects/medical-cabinet-web" element={<MedicalCabinetWebDetail />} />
+          <Route path="/projects/site-educatif" element={<KidsEduSiteDetail />} />
+          <Route path="/projects/network-infra" element={<NetworkInfraDetail />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
