@@ -54,29 +54,29 @@ const FocusSection = () => {
                             <span className="tab-dot red"></span>
                             <span className="tab-dot yellow"></span>
                             <span className="tab-dot green"></span>
-                            <span className="tab-filename">screenshot.png</span>
+                            <span className="tab-filename">desktop-app.xaml</span>
                         </div>
-                        <img src="/assets/medical-dashboard-closeup.png" alt="Gestion Cabinet Médical" className="focus-img" />
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600" alt="Application C#" className="focus-img" />
                     </div>
                     <div className="focus-content">
                         <div className="focus-file-tab">
                             <span className="file-dot"></span>
-                            medical.config
+                            app.config
                         </div>
-                        <span className="focus-tag">PHP — Gestion</span>
-                        <h3 className="focus-title">Cabinet médical</h3>
+                        <span className="focus-tag">C# — Desktop</span>
+                        <h3 className="focus-title">Application Bureau</h3>
                         <p className="focus-text">
-                            Site internet pour gérer un cabinet médical — des rendez-vous aux ordonnances.
+                            Application WPF pour l'administration d'un cabinet médical.
                         </p>
                         <ul className="focus-list">
-                            <li><span className="list-line-num">01</span> Intégration des médicaments du site gouvernemental</li>
-                            <li><span className="list-line-num">02</span> Assistant médical basé sur l'IA</li>
-                            <li><span className="list-line-num">03</span> Interface claire et simple d'utilisation</li>
+                            <li><span className="list-line-num">01</span> Architecture en C# et .NET avec interface WPF</li>
+                            <li><span className="list-line-num">02</span> Base de données MariaDB pour les informations du cabinet</li>
+                            <li><span className="list-line-num">03</span> Une gestion performantes du Cabinet</li>
                         </ul>
                         <div className="focus-actions">
-                            <a href="https://github.com/Titouan-Lefort/Gestion-cabinet-medical" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                                <Github size={15} style={{ marginRight: '6px' }} /> Code
-                            </a>
+                            <Link to="/projects" state={{ from: 'home' }} className="btn btn-primary">
+                                <ExternalLink size={15} style={{ marginRight: '6px' }} /> En savoir plus
+                            </Link>
                         </div>
                     </div>
                 </div>

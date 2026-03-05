@@ -10,19 +10,19 @@ const projects = [
         id: 1,
         title: "Atlantis Montaza — ERP",
         description: "Système de gestion complet pour une entreprise de logistique : suivi des stocks, gestion des employés, facturation.",
-        tags: ["Laravel", "JavaScript", "MySQL", "Docker"],
+        tags: ["Laravel", "JavaScript", "PostgreSQL", "Linux"],
         image: "/assets/hero-dashboard.png",
         github: null,
         demo: "/projects/montaza"
     },
     {
         id: 2,
-        title: "Application Bureau de Gestion Web",
-        description: "Application desktop pour l'administration de contenu, suivi des utilisateurs et tableau de bord analytique.",
-        tags: ["C#", ".NET", "WPF", "PostgreSQL"],
+        title: "Application Bureau de Gestion de cabinet médical",
+        description: "Application desktop pour la gestion d'un cabinet médical : patients, médicaments, ordonnances.",
+        tags: ["C#", ".NET", "WPF", "MariaDB"],
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600",
-        github: null,
-        demo: null
+        github: "https://github.com/Titouan-Lefort/Gestion-cabinet-medical-Csharp",
+        demo: "/projects/medical-cabinet"
     },
     {
         id: 3,

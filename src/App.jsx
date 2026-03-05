@@ -11,6 +11,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import ExperiencePage from './pages/ExperiencePage';
 import ContactPage from './pages/ContactPage';
 import MontazaDetail from './pages/MontazaDetail';
+import MedicalCabinetDetail from './pages/MedicalCabinetDetail';
 import './index.css';
 
 const Home = () => (
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/montaza" element={<MontazaDetail />} />
+          <Route path="/projects/medical-cabinet" element={<MedicalCabinetDetail />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>

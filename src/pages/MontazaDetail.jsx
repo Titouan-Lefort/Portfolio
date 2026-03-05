@@ -44,9 +44,8 @@ const MontazaDetail = () => {
                 <section className="project-section fade-in-up" style={{ animationDelay: '0.2s' }}>
                     <h2 className="section-title">Vue d'ensemble</h2>
                     <p className="section-text">
-                        Atlantis Montaza est un système ERP (Enterprise Resource Planning) conçu pour moderniser et automatiser
-                        la gestion d'une entreprise de logistique. Ce projet ambitieux intègre plusieurs modules essentiels
-                        pour gérer efficacement les stocks, la facturation, les ressources humaines et bien plus encore.
+                        L'entreprise de chaudronnerie Atlantis Montaza avait besoin d'un système de gestion pour optimiser ses opérations.
+                        J'ai donc été recruté en tant qu'alternant pour continuer le développement développer ce système.
                     </p>
                 </section>
 
@@ -56,7 +55,7 @@ const MontazaDetail = () => {
                         <Calendar className="info-icon" size={24} />
                         <div className="info-content">
                             <h3 className="info-title">Durée</h3>
-                            <p className="info-value">6 mois (2024)</p>
+                            <p className="info-value">1 an (2025-2026)</p>
                         </div>
                     </div>
                     <div className="info-card">
@@ -70,7 +69,7 @@ const MontazaDetail = () => {
                         <Code className="info-icon" size={24} />
                         <div className="info-content">
                             <h3 className="info-title">Technologies</h3>
-                            <p className="info-value">Laravel, Vue.js, MySQL</p>
+                            <p className="info-value">Laravel, PostgreSQL, JavaScript</p>
                         </div>
                     </div>
                 </div>
@@ -85,19 +84,19 @@ const MontazaDetail = () => {
                             <p>Framework PHP pour le backend et l'architecture MVC</p>
                         </div>
                         <div className="tech-stack-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js" />
-                            <h4>Vue.js</h4>
-                            <p>Framework JavaScript pour une interface réactive</p>
-                        </div>
-                        <div className="tech-stack-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
-                            <h4>MySQL</h4>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
+                            <h4>PostgreSQL</h4>
                             <p>Base de données relationnelle robuste</p>
                         </div>
                         <div className="tech-stack-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
-                            <h4>Docker</h4>
-                            <p>Conteneurisation pour déploiement simplifié</p>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                            <h4>JavaScript</h4>
+                            <p>Langage pour le dynamisme côté client</p>
+                        </div>
+                        <div className="tech-stack-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
+                            <h4>Linux</h4>
+                            <p>Environnement de développement et déploiement du serveur</p>
                         </div>
                     </div>
                 </section>
@@ -117,28 +116,28 @@ const MontazaDetail = () => {
                             <CheckCircle className="feature-icon" size={20} />
                             <div className="feature-content">
                                 <h4>Module de Facturation</h4>
-                                <p>Création de devis, facturation automatisée, suivi des paiements et génération de rapports financiers</p>
+                                <p>Création de devis et suivi des paiements</p>
                             </div>
                         </div>
                         <div className="feature-item">
                             <CheckCircle className="feature-icon" size={20} />
                             <div className="feature-content">
                                 <h4>Ressources Humaines</h4>
-                                <p>Gestion des employés, planning des équipes, suivi des congés et gestion de la paie</p>
+                                <p>Gestion des employés, planning des équipes et suivi des congés</p>
                             </div>
                         </div>
                         <div className="feature-item">
                             <CheckCircle className="feature-icon" size={20} />
                             <div className="feature-content">
                                 <h4>Tableaux de Bord</h4>
-                                <p>Visualisation des KPIs en temps réel, graphiques interactifs et rapports personnalisables</p>
+                                <p>Visualisation des commandes et demandes de prix, du materiels, des employés et des devis pour chaque affaire</p>
                             </div>
                         </div>
                         <div className="feature-item">
                             <CheckCircle className="feature-icon" size={20} />
                             <div className="feature-content">
-                                <h4>API RESTful</h4>
-                                <p>Architecture API complète pour intégrations tierces et applications mobiles futures</p>
+                                <h4>Responsive et adapté</h4>
+                                <p>Adapté à tous les écrans et à tout type d'utilisateur</p>
                             </div>
                         </div>
                         <div className="feature-item">
@@ -156,53 +155,31 @@ const MontazaDetail = () => {
                     <h2 className="section-title">Défis & Solutions</h2>
                     <div className="challenges-grid">
                         <div className="challenge-card">
-                            <h4>Défi : Performance</h4>
+                            <h4>Défi : Visibilité</h4>
                             <p>
-                                <strong>Problème :</strong> Le système devait gérer des milliers de transactions simultanées sans ralentissement.
+                                <strong>Problème :</strong> Avoir un visuel rapide sur l'ensemble des éléments de l'entreprise
                             </p>
                             <p>
-                                <strong>Solution :</strong> Mise en place de cache Redis, optimisation des requêtes SQL avec des index appropriés,
-                                et utilisation de queues pour les tâches lourdes.
-                            </p>
-                        </div>
-                        <div className="challenge-card">
-                            <h4>Défi : Sécurité</h4>
-                            <p>
-                                <strong>Problème :</strong> Protection des données sensibles (finances, RH) contre les accès non autorisés.
-                            </p>
-                            <p>
-                                <strong>Solution :</strong> Authentification multi-facteurs, chiffrement des données sensibles, audit logs complets
-                                et validation stricte des entrées utilisateur.
+                                <strong>Solution :</strong> Mise en place de tableaux de bord clair qui offre un accès à toute les informations.
                             </p>
                         </div>
                         <div className="challenge-card">
-                            <h4>Défi : Scalabilité</h4>
+                            <h4>Défi : Facturation</h4>
                             <p>
-                                <strong>Problème :</strong> L'application devait pouvoir évoluer avec l'entreprise.
+                                <strong>Problème :</strong> Pouvoir rapidement faire des devis et les envoyer au client.
                             </p>
                             <p>
-                                <strong>Solution :</strong> Architecture modulaire avec Docker, séparation des services, et conception
-                                permettant l'ajout facile de nouveaux modules.
+                                <strong>Solution :</strong> Mise en place d'un module de facturation qui permet de créer des devis et de les envoyer directement au client depuis l'application.
                             </p>
                         </div>
-                    </div>
-                </section>
-
-                {/* Résultats */}
-                <section className="project-section fade-in-up" style={{ animationDelay: '0.7s' }}>
-                    <h2 className="section-title">Résultats & Impact</h2>
-                    <div className="results-grid">
-                        <div className="result-card">
-                            <div className="result-number">40%</div>
-                            <p className="result-text">Gain de temps sur les tâches administratives</p>
-                        </div>
-                        <div className="result-card">
-                            <div className="result-number">100%</div>
-                            <p className="result-text">Traçabilité des opérations logistiques</p>
-                        </div>
-                        <div className="result-card">
-                            <div className="result-number">30%</div>
-                            <p className="result-text">Réduction des erreurs de facturation</p>
+                        <div className="challenge-card">
+                            <h4>Défi : Centralisation</h4>
+                            <p>
+                                <strong>Problème :</strong> Que les informations soit centralisées en un seul endroit.
+                            </p>
+                            <p>
+                                <strong>Solution :</strong> Mise en place d'un système de base de données centralisée qui permet de stocker toutes les informations de l'entreprise.
+                            </p>
                         </div>
                     </div>
                 </section>
