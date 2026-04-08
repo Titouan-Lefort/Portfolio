@@ -30,9 +30,9 @@ const experiences = [
     },
     {
         type: 'work',
-        company: 'Projets Académiques',
-        position: 'Développeur de projets',
-        period: "2024 - aujourd'hui",
+        company: 'Everllence',
+        position: 'Développeur',
+        period: "juin-juillet 2025",
         description: 'Réalisation de projets dans le cadre de la formation BTS SIO. Développement d\'applications métier avec des technologies variées.',
         technologies: [
             { name: 'PHP', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
