@@ -33,18 +33,17 @@ const experiences = [
         company: 'Everllence',
         position: 'Développeur',
         period: "juin-juillet 2025",
-        description: 'Réalisation de projets dans le cadre de la formation BTS SIO. Développement d\'applications métier avec des technologies variées.',
+        description: 'Réalisation de projets dans le cadre de mon stage de première année de BTS SIO.',
         technologies: [
-            { name: 'PHP', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
-            { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-            { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
-            { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' }
+            { name: 'Bash', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg' },
+            { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
+
         ],
         achievements: [
-            'PPE (Projet Professionnel Encadré) : Développement d\'une application de gestion',
-            'Travail en équipe avec méthodologie Agile/Scrum',
-            'Utilisation de Git et GitHub pour la gestion de version',
-            'Rédaction de documentation technique complète'
+            'Développement d\'un script d\'automatisation de création de certificats d\'accès',
+            'Gestion de clés privées et publiques',
+            'Gestion des droits d\'accès',
+            'Utilisation de SSH pour la connexion à distance'
         ]
     }
 ];
