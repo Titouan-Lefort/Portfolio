@@ -17,8 +17,22 @@ const Navbar = () => {
 
       if (location.pathname === '/') {
         const competencesSection = document.getElementById('competences');
+        const veilleSection = document.getElementById('veille');
 
-        if (competencesSection) {
+        let newActiveSection = '';
+
+        if (veilleSection) {
+          const sectionTop = veilleSection.offsetTop;
+          const sectionBottom = sectionTop + veilleSection.offsetHeight;
+          const viewportMiddle = window.scrollY + window.innerHeight / 2;
+
+          if ((viewportMiddle >= sectionTop && viewportMiddle <= sectionBottom) ||
+            (window.scrollY >= sectionTop - 200 && window.scrollY < sectionTop + 100)) {
+            newActiveSection = 'veille';
+          }
+        }
+
+        if (!newActiveSection && competencesSection) {
           const scrollPosition = window.scrollY;
           const sectionTop = competencesSection.offsetTop;
           const sectionBottom = sectionTop + competencesSection.offsetHeight;
@@ -26,13 +40,11 @@ const Navbar = () => {
 
           if ((viewportMiddle >= sectionTop && viewportMiddle <= sectionBottom) ||
             (scrollPosition >= sectionTop - 200 && scrollPosition < sectionTop + 100)) {
-            setActiveSection('competences');
-          } else {
-            setActiveSection('');
+            newActiveSection = 'competences';
           }
-        } else {
-          setActiveSection('');
         }
+
+        setActiveSection(newActiveSection);
       } else {
         setActiveSection('');
       }
@@ -53,6 +65,14 @@ const Navbar = () => {
     }
   };
 
+  const handleHomeClick = (e) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   const handleCompetencesClick = (e) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
@@ -65,10 +85,22 @@ const Navbar = () => {
     }
   };
 
+  const handleVeilleClick = (e) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => { scrollToSection('veille'); }, 100);
+    } else {
+      scrollToSection('veille');
+    }
+  };
+
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
-        <Link to="/" className="logo">
+        <Link to="/" className="logo" onClick={handleHomeClick}>
           <img
             src={profilePhoto}
             alt="Titouan Lefort"
@@ -80,7 +112,7 @@ const Navbar = () => {
         <div className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
           <Link
             to="/"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={handleHomeClick}
             className={location.pathname === '/' && !activeSection ? 'active' : ''}
           >
             accueil
@@ -91,6 +123,13 @@ const Navbar = () => {
             className={activeSection === 'competences' ? 'active' : ''}
           >
             compétences
+          </a>
+          <a
+            href="#veille"
+            onClick={handleVeilleClick}
+            className={activeSection === 'veille' ? 'active' : ''}
+          >
+            veille
           </a>
           <Link
             to="/projects"

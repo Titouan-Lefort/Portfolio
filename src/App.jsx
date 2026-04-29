@@ -15,6 +15,7 @@ import ErpDesktopDetail from './pages/ErpDesktopDetail';
 import MedicalCabinetWebDetail from './pages/MedicalCabinetWebDetail';
 import KidsEduSiteDetail from './pages/KidsEduSiteDetail';
 import NetworkInfraDetail from './pages/NetworkInfraDetail';
+import TechWatch from './components/TechWatch';
 import './index.css';
 
 const Home = () => (
@@ -23,6 +24,7 @@ const Home = () => (
     <Navbar />
     <Hero />
     <FeaturesGrid />
+    <TechWatch />
     <FocusSection />
     <Footer />
   </>
