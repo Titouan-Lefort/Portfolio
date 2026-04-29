@@ -4,6 +4,8 @@ import { Github, ExternalLink } from 'lucide-react';
 import './FocusSection.css';
 
 const FocusSection = () => {
+    const base = import.meta.env.BASE_URL;
+
     return (
         <section className="section focus-section">
             <div className="container">
@@ -43,7 +45,7 @@ const FocusSection = () => {
                             <span className="tab-dot green"></span>
                             <span className="tab-filename">preview.png</span>
                         </div>
-                        <img src="/assets/erp-dashboard.png" alt="Atlantis Montaza ERP" className="focus-img" />
+                        <img src={`${base}assets/erp-web-accueil.png`} alt="Atlantis Montaza ERP" className="focus-img" />
                     </div>
                 </div>
 
@@ -56,7 +58,7 @@ const FocusSection = () => {
                             <span className="tab-dot green"></span>
                             <span className="tab-filename">desktop-app.xaml</span>
                         </div>
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600" alt="Application C#" className="focus-img" />
+                        <img src={`${base}assets/erp-desktop-admin.png`} alt="Application C#" className="focus-img" />
                     </div>
                     <div className="focus-content">
                         <div className="focus-file-tab">

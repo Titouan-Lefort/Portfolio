@@ -5,11 +5,13 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './ProjectDetailPage.css';
 
+const base = import.meta.env.BASE_URL;
+
 const carouselImages = [
-    { src: '/assets/erp-desktop-admin.png', alt: 'Administration — Tableau de bord principal' },
-    { src: '/assets/erp-desktop-roles.png', alt: 'Gestion des Rôles et Permissions' },
-    { src: '/assets/erp-desktop-stats.png', alt: 'Statistiques — Affaires, commandes et budgets' },
-    { src: '/assets/erp-desktop-personnel.png', alt: 'Gestion du Personnel' },
+    { src: `${base}assets/erp-desktop-admin.png`, alt: 'Administration — Tableau de bord principal' },
+    { src: `${base}assets/erp-desktop-roles.png`, alt: 'Gestion des Rôles et Permissions' },
+    { src: `${base}assets/erp-desktop-stats.png`, alt: 'Statistiques — Affaires, commandes et budgets' },
+    { src: `${base}assets/erp-desktop-personnel.png`, alt: 'Gestion du Personnel' },
 ];
 
 const ErpDesktopDetail = () => {
@@ -46,14 +48,8 @@ const ErpDesktopDetail = () => {
                     </p>
                 </div>
 
-                {/* Image principale */}
-                <div className="project-hero-image fade-in-up" style={{ animationDelay: '0.1s' }}>
-                    <img src="/assets/erp-desktop-admin.png" alt="ERP Desktop — Administration" />
-                </div>
-
                 {/* Carrousel d'images */}
-                <section className="project-section fade-in-up" style={{ animationDelay: '0.15s' }}>
-                    <h2 className="section-title">Aperçu de l'application</h2>
+                <section className="project-section fade-in-up" style={{ animationDelay: '0.1s' }}>
                     <div className="project-carousel">
                         <button className="carousel-btn carousel-btn-prev" onClick={prevSlide} aria-label="Image précédente">
                             <ChevronLeft size={22} />

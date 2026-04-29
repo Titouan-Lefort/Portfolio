@@ -1,13 +1,27 @@
-import React from 'react';
-import { ArrowLeft, Calendar, Users, Code, CheckCircle, FileText, Download, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowLeft, Calendar, Users, Code, CheckCircle, FileText, Download, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './ProjectDetailPage.css';
 
+const base = import.meta.env.BASE_URL;
+
+const carouselImages = [
+    { src: `${base}assets/erp-web-accueil.png`, alt: 'Accueil — Navigation principale' },
+    { src: `${base}assets/erp-web-dashboard.png`, alt: 'Tableau de bord — Aperçu de l\'activité' },
+    { src: `${base}assets/erp-web-affaires.png`, alt: 'Affaires — Suivi des projets en cours' },
+    { src: `${base}assets/erp-web-devis.png`, alt: 'Devis — Gestion des propositions commerciales' },
+    { src: `${base}assets/erp-web-matieres.png`, alt: 'Matières — Catalogue et gestion des stocks' },
+];
+
 const MontazaDetail = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
+    const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
 
     // Déterminer d'où l'utilisateur vient
     const fromHomePage = location.state?.from === 'home';
@@ -35,10 +49,35 @@ const MontazaDetail = () => {
                     </p>
                 </div>
 
-                {/* Image principale */}
-                <div className="project-hero-image fade-in-up" style={{ animationDelay: '0.1s' }}>
-                    <img src="/assets/hero-dashboard.png" alt="Atlantis Montaza Dashboard" />
-                </div>
+                {/* Carrousel d'images */}
+                <section className="project-section fade-in-up" style={{ animationDelay: '0.1s' }}>
+                    <div className="project-carousel">
+                        <button className="carousel-btn carousel-btn-prev" onClick={prevSlide} aria-label="Image précédente">
+                            <ChevronLeft size={22} />
+                        </button>
+                        <div className="carousel-viewport">
+                            <img
+                                src={carouselImages[currentSlide].src}
+                                alt={carouselImages[currentSlide].alt}
+                                className="carousel-image"
+                            />
+                            <p className="carousel-caption">{carouselImages[currentSlide].alt}</p>
+                        </div>
+                        <button className="carousel-btn carousel-btn-next" onClick={nextSlide} aria-label="Image suivante">
+                            <ChevronRight size={22} />
+                        </button>
+                    </div>
+                    <div className="carousel-dots">
+                        {carouselImages.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`carousel-dot ${index === currentSlide ? 'active' : ''}`}
+                                onClick={() => setCurrentSlide(index)}
+                                aria-label={`Aller à l'image ${index + 1}`}
+                            />
+                        ))}
+                    </div>
+                </section>
 
                 {/* Vue d'ensemble */}
                 <section className="project-section fade-in-up" style={{ animationDelay: '0.2s' }}>

@@ -11,7 +11,7 @@ const projects = [
         title: "Atlantis Montaza — ERP",
         description: "Système de gestion complet pour une entreprise de logistique : suivi des stocks, gestion des employés, facturation.",
         tags: ["Laravel", "JavaScript", "PostgreSQL", "Linux"],
-        image: "/assets/hero-dashboard.png",
+        image: `${import.meta.env.BASE_URL}assets/erp-web-accueil.png`,
         github: null,
         demo: "/projects/montaza"
     },
@@ -20,7 +20,7 @@ const projects = [
         title: "Application Bureau Gestion ERP",
         description: "Application desktop en C# pour l'administration et la gestion d'un système ERP.",
         tags: ["C#", ".NET", "WPF", "PostgreSQL"],
-        image: "/assets/erp-desktop-admin.png",
+        image: `${import.meta.env.BASE_URL}assets/erp-desktop-admin.png`,
         github: null,
         demo: "/projects/erp-desktop"
     },
