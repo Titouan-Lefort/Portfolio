@@ -277,6 +277,84 @@
     opacity: 0;
 }
 
+/* Documentation Cards */
+.doc-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.25rem;
+}
+
+.doc-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color var(--transition-fast), transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.doc-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.doc-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    background: rgba(var(--color-accent-rgb, 99, 102, 241), 0.1);
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    transition: background 0.2s ease;
+}
+
+.doc-card:hover .doc-card-icon {
+    background: rgba(var(--color-accent-rgb, 99, 102, 241), 0.18);
+}
+
+.doc-card-content {
+    flex: 1;
+    margin-bottom: 1.25rem;
+}
+
+.doc-card-content h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.4rem;
+}
+
+.doc-card-content p {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.doc-card-action {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+    transition: gap 0.2s ease;
+}
+
+.doc-card:hover .doc-card-action {
+    gap: 0.75rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .project-detail-title {
@@ -296,6 +374,10 @@
     }
 
     .project-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .doc-cards-grid {
         grid-template-columns: 1fr;
     }
 }

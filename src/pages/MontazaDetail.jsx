@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Calendar, Users, Code, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Calendar, Users, Code, CheckCircle, FileText, Download } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -181,6 +181,52 @@ const MontazaDetail = () => {
                                 <strong>Solution :</strong> Mise en place d'un système de base de données centralisée qui permet de stocker toutes les informations de l'entreprise.
                             </p>
                         </div>
+                    </div>
+                </section>
+
+                {/* Documentation */}
+                <section className="project-section fade-in-up" style={{ animationDelay: '0.7s' }}>
+                    <h2 className="section-title">Documentation</h2>
+                    <p className="section-text" style={{ marginBottom: '1.5rem' }}>
+                        Consultez la documentation technique et utilisateur de l'application web ERP.
+                    </p>
+                    <div className="doc-cards-grid">
+                        <a
+                            href={`${import.meta.env.BASE_URL}assets/Documentation Techique application legere.pdf`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="doc-card"
+                        >
+                            <div className="doc-card-icon">
+                                <FileText size={32} />
+                            </div>
+                            <div className="doc-card-content">
+                                <h4>Documentation Technique</h4>
+                                <p>Architecture, base de données, API et détails d'implémentation de l'application web.</p>
+                            </div>
+                            <div className="doc-card-action">
+                                <Download size={18} />
+                                <span>Télécharger PDF</span>
+                            </div>
+                        </a>
+                        <a
+                            href={`${import.meta.env.BASE_URL}assets/Documentation Utilisateur application legere.pdf`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="doc-card"
+                        >
+                            <div className="doc-card-icon">
+                                <FileText size={32} />
+                            </div>
+                            <div className="doc-card-content">
+                                <h4>Documentation Utilisateur</h4>
+                                <p>Guide d'utilisation complet : navigation, fonctionnalités et cas d'usage de l'ERP.</p>
+                            </div>
+                            <div className="doc-card-action">
+                                <Download size={18} />
+                                <span>Télécharger PDF</span>
+                            </div>
+                        </a>
                     </div>
                 </section>
             </main>
