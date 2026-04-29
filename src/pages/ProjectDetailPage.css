@@ -277,6 +277,89 @@
     opacity: 0;
 }
 
+/* Image Carousel */
+.project-carousel {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+}
+
+.carousel-viewport {
+    flex: 1;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-secondary);
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-caption {
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    color: var(--color-text-tertiary);
+    font-family: var(--font-mono);
+    border-top: 1px solid var(--color-border);
+}
+
+.carousel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-secondary);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.carousel-btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: rgba(var(--color-accent-rgb, 99, 102, 241), 0.08);
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+.carousel-dot.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: scale(1.25);
+}
+
+.carousel-dot:hover:not(.active) {
+    border-color: var(--color-text-tertiary);
+}
+
 /* Documentation Cards */
 .doc-cards-grid {
     display: grid;
@@ -291,16 +374,12 @@
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: 1.5rem;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color var(--transition-fast), transform 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
+    transition: border-color var(--transition-fast), box-shadow 0.2s ease;
 }
 
 .doc-card:hover {
-    border-color: var(--color-accent);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-border-light);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .doc-card-icon {
@@ -338,21 +417,49 @@
     line-height: 1.6;
 }
 
-.doc-card-action {
+.doc-card-actions {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-accent);
-    font-family: var(--font-mono);
+    gap: 0.75rem;
     padding-top: 1rem;
     border-top: 1px solid var(--color-border);
-    transition: gap 0.2s ease;
 }
 
-.doc-card:hover .doc-card-action {
-    gap: 0.75rem;
+.doc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.doc-btn-outline {
+    color: var(--color-text-secondary);
+    background: transparent;
+    border: 1px solid var(--color-border);
+}
+
+.doc-btn-outline:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background: rgba(var(--color-accent-rgb, 99, 102, 241), 0.06);
+}
+
+.doc-btn-primary {
+    color: #fff;
+    background: var(--color-accent);
+    border: 1px solid var(--color-accent);
+}
+
+.doc-btn-primary:hover {
+    filter: brightness(1.15);
+    box-shadow: 0 4px 12px rgba(var(--color-accent-rgb, 99, 102, 241), 0.3);
 }
 
 /* Responsive */

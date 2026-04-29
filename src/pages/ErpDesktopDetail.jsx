@@ -1,13 +1,24 @@
-import React from 'react';
-import { ArrowLeft, Calendar, Users, Code, CheckCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowLeft, Calendar, Users, Code, CheckCircle, FileText, Download, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './ProjectDetailPage.css';
 
+const carouselImages = [
+    { src: '/assets/erp-desktop-admin.png', alt: 'Administration — Tableau de bord principal' },
+    { src: '/assets/erp-desktop-roles.png', alt: 'Gestion des Rôles et Permissions' },
+    { src: '/assets/erp-desktop-stats.png', alt: 'Statistiques — Affaires, commandes et budgets' },
+    { src: '/assets/erp-desktop-personnel.png', alt: 'Gestion du Personnel' },
+];
+
 const ErpDesktopDetail = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
+    const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
 
     // Déterminer d'où l'utilisateur vient
     const fromHomePage = location.state?.from === 'home';
@@ -37,8 +48,39 @@ const ErpDesktopDetail = () => {
 
                 {/* Image principale */}
                 <div className="project-hero-image fade-in-up" style={{ animationDelay: '0.1s' }}>
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600" alt="ERP Desktop Dashboard" />
+                    <img src="/assets/erp-desktop-admin.png" alt="ERP Desktop — Administration" />
                 </div>
+
+                {/* Carrousel d'images */}
+                <section className="project-section fade-in-up" style={{ animationDelay: '0.15s' }}>
+                    <h2 className="section-title">Aperçu de l'application</h2>
+                    <div className="project-carousel">
+                        <button className="carousel-btn carousel-btn-prev" onClick={prevSlide} aria-label="Image précédente">
+                            <ChevronLeft size={22} />
+                        </button>
+                        <div className="carousel-viewport">
+                            <img
+                                src={carouselImages[currentSlide].src}
+                                alt={carouselImages[currentSlide].alt}
+                                className="carousel-image"
+                            />
+                            <p className="carousel-caption">{carouselImages[currentSlide].alt}</p>
+                        </div>
+                        <button className="carousel-btn carousel-btn-next" onClick={nextSlide} aria-label="Image suivante">
+                            <ChevronRight size={22} />
+                        </button>
+                    </div>
+                    <div className="carousel-dots">
+                        {carouselImages.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`carousel-dot ${index === currentSlide ? 'active' : ''}`}
+                                onClick={() => setCurrentSlide(index)}
+                                aria-label={`Aller à l'image ${index + 1}`}
+                            />
+                        ))}
+                    </div>
+                </section>
 
                 {/* Vue d'ensemble */}
                 <section className="project-section fade-in-up" style={{ animationDelay: '0.2s' }}>
@@ -151,6 +193,71 @@ const ErpDesktopDetail = () => {
                 </section>
                 */}
 
+                {/* Documentation */}
+                <section className="project-section fade-in-up" style={{ animationDelay: '0.7s' }}>
+                    <h2 className="section-title">Documentation</h2>
+                    <p className="section-text" style={{ marginBottom: '1.5rem' }}>
+                        Consultez la documentation technique et utilisateur de l'application bureau ERP.
+                    </p>
+                    <div className="doc-cards-grid">
+                        <div className="doc-card">
+                            <div className="doc-card-icon">
+                                <FileText size={32} />
+                            </div>
+                            <div className="doc-card-content">
+                                <h4>Documentation Technique</h4>
+                                <p>Architecture, base de données, et détails d'implémentation de l'application C#.</p>
+                            </div>
+                            <div className="doc-card-actions">
+                                <a
+                                    href={`${import.meta.env.BASE_URL}assets/Documentation Techique application lourde.pdf`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="doc-btn doc-btn-outline"
+                                >
+                                    <ExternalLink size={16} />
+                                    <span>Ouvrir en ligne</span>
+                                </a>
+                                <a
+                                    href={`${import.meta.env.BASE_URL}assets/Documentation Techique application lourde.pdf`}
+                                    download="Documentation Technique application lourde.pdf"
+                                    className="doc-btn doc-btn-primary"
+                                >
+                                    <Download size={16} />
+                                    <span>Télécharger</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div className="doc-card">
+                            <div className="doc-card-icon">
+                                <FileText size={32} />
+                            </div>
+                            <div className="doc-card-content">
+                                <h4>Documentation Utilisateur</h4>
+                                <p>Guide d'utilisation complet : navigation, fonctionnalités et cas d'usage de l'application bureau.</p>
+                            </div>
+                            <div className="doc-card-actions">
+                                <a
+                                    href={`${import.meta.env.BASE_URL}assets/Documentation Utilisateur application lourde.pdf`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="doc-btn doc-btn-outline"
+                                >
+                                    <ExternalLink size={16} />
+                                    <span>Ouvrir en ligne</span>
+                                </a>
+                                <a
+                                    href={`${import.meta.env.BASE_URL}assets/Documentation Utilisateur application lourde.pdf`}
+                                    download="Documentation Utilisateur application lourde.pdf"
+                                    className="doc-btn doc-btn-primary"
+                                >
+                                    <Download size={16} />
+                                    <span>Télécharger</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </main>
 
             <Footer />

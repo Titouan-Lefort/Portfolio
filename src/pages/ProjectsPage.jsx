@@ -20,7 +20,7 @@ const projects = [
         title: "Application Bureau Gestion ERP",
         description: "Application desktop en C# pour l'administration et la gestion d'un système ERP.",
         tags: ["C#", ".NET", "WPF", "PostgreSQL"],
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600",
+        image: "/assets/erp-desktop-admin.png",
         github: null,
         demo: "/projects/erp-desktop"
     },
